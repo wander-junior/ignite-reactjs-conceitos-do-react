@@ -36,7 +36,12 @@ export function TaskList() {
   }
 
   function handleRemoveTask(id: number) {
-    // Remova uma task da listagem pelo ID
+    const index = tasks.findIndex(task => task.id === id);
+    if (index > -1 ) {
+      const tasksCopy = tasks;
+      tasksCopy.splice(index, 1)
+      setTasks([...tasksCopy]);
+    }
   }
 
   return (
